@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Certificate of Achievement</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Marcellus&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#c9a227;
+  --gold-soft:#f3e6b3;
+  --ink:#1a1a1a;
+  --paper:#fcf7e6;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact;
+}
+
+body{
+  background:#ddd7c2;
+  font-family:"Marcellus", serif;
+  display:flex;
+  justify-content:center;
+  padding:20px;
+}
+
+/* ===== CERTIFICATE ===== */
+.certificate{
+  width:100%;
+  max-width:900px;
+  background:
+    radial-gradient(circle at top left, rgba(0,0,0,.03), transparent 40%),
+    radial-gradient(circle at bottom right, rgba(0,0,0,.03), transparent 40%),
+    var(--paper);
+  border:14px double var(--gold);
+  padding:45px;
+  position:relative;
+}
+
+/* inner border */
+.certificate::before{
+  content:"";
+  position:absolute;
+  inset:25px;
+  border:2px solid rgba(201,162,39,.5);
+  pointer-events:none;
+}
+
+/* watermark seal */
+.watermark{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:"Cinzel", serif;
+  font-size:160px;
+  color:rgba(201,162,39,.07);
+  pointer-events:none;
+  transform:rotate(-12deg);
+}
+
+/* download button */
+.controls{
+  text-align:center;
+  margin-bottom:15px;
+}
+.controls button{
+  background:var(--gold);
+  border:none;
+  padding:10px 25px;
+  font-weight:bold;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+/* ===== HEADER ===== */
+.header{
+  text-align:center;
+  margin-bottom:28px;
+}
+.header h1{
+  font-family:"Cinzel", serif;
+  font-size:44px;
+  letter-spacing:2px;
+}
+.header p{
+  margin-top:6px;
+  font-size:16px;
+}
+
+/* ===== BODY ===== */
+.motto{
+  text-align:center;
+  font-size:18px;
+  margin-bottom:35px;
+}
+
+.content{
+  display:flex;
+  gap:40px;
+  flex-wrap:wrap;
+}
+
+.left{
+  flex:1 1 45%;
+  font-size:18px;
+  line-height:1.8;
+}
+
+.right{
+  flex:1 1 45%;
+  text-align:center;
+}
+
+.photo{
+  width:210px;
+  height:210px;
+  margin:0 auto 15px;
+  border-radius:50%;
+  border:4px solid var(--gold);
+  overflow:hidden;
+}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.name{
+  font-size:24px;
+  font-weight:bold;
+}
+.title{
+  margin-top:4px;
+  font-size:16px;
+}
+
+/* ===== FOOTER ===== */
+.footer{
+  margin-top:40px;
+  font-size:15px;
+  text-align:center;
+}
+
+.signature-area{
+  margin-top:40px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+
+.signature{
+  width:45%;
+  text-align:center;
+}
+
+.signature .line{
+  border-top:1.5px solid #333;
+  margin-top:35px;
+}
+
+.cert-id{
+  margin-top:18px;
+  font-size:14px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:650px){
+  .content{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+/* ===== PRINT ===== */
+@media print{
+  body{ padding:0; background:white; }
+  .controls{ display:none; }
+  .certificate{ border:none; }
+}
+
+@page{
+  size:A4;
+  margin:20mm;
+}
+</style>
+</head>
+
+<body>
+
+<div class="certificate">
+
+  <div class="controls">
+    <button onclick="window.print()">Download / Save as PDF</button>
+  </div>
+
+  <div class="watermark">ACHIEVEMENT</div>
+
+  <div class="header">
+    <h1>Certificate of Achievement</h1>
+    <p>OOU • UNILAG • SIU</p>
+  </div>
+
+  <div class="motto">
+    Long ambition achieved<br>
+    <strong>PASSION · PURPOSE · PERSISTENCE</strong>
+  </div>
+
+  <div class="content">
+
+    <div class="left">
+      <p><strong>Olabisi Onabanjo University (OOU)</strong><br>
+      B.Sc (Ed) Economics</p>
+
+      <p><strong>University of Lagos (UNILAG)</strong><br>
+      M.Ed Educational Administration & Planning</p>
+
+      <p><strong>SIU, United States of America</strong><br>
+      PhD Educational Management</p>
+    </div>
+
+    <div class="right">
+      <div class="photo">
+        <img src="assets/images/ustazi.png" alt="Portrait">
+      </div>
+      <div class="name">Kazeem Rasheed Oluwasegun</div>
+      <div class="title">PhD Educational Management</div>
+    </div>
+
+  </div>
+
+  <div class="signature-area">
+    <div class="signature">
+      <div class="line"></div>
+      Authorized Signatory
+    </div>
+    <div class="signature">
+      <div class="line"></div>
+      Date Issued
+    </div>
+  </div>
+
+  <div class="cert-id">
+    Certificate ID: KR-EDU-2025-001
+  </div>
+
+  <div class="footer">
+    Awarded in recognition of exceptional academic dedication and leadership.
+  </div>
+
+</div>
+
+</body>
+</html>
